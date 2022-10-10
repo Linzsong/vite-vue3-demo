@@ -1,0 +1,3 @@
+#忽略依赖库
+node_modules/
+/dist
