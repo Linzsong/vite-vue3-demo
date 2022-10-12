@@ -1,7 +1,13 @@
-import { createApp } from "vue";
+import { createApp } from "vue"
 // 引用.vue 文件时需要先声明这个.vue的类型
-import App from "./App.vue";
-createApp(App).mount("#app");
+import App from "./App.vue"
+createApp(App).mount("#app")
 
-// let a: number = '123'
-// console.log(a);
+console.log(12)
+const a = 1
+if (a) {
+  const ab = 1
+  console.log(ab)
+}
+// eslint-disable-next-line no-constant-condition
+// var a = 1
