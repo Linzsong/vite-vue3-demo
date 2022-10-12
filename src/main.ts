@@ -3,8 +3,6 @@ import { createApp } from "vue"
 import App from "./App.vue"
 createApp(App).mount("#app")
 
-console.log(12)
-var aaa = 1
 const a: string = 1
 if (a) {
   const ab = 1
