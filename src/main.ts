@@ -4,9 +4,10 @@ import App from "./App.vue"
 createApp(App).mount("#app")
 
 console.log(12)
-const a = 1
+const a:string = 1
 if (a) {
   const ab = 1
+  console.log(ab)
 }
 // eslint-disable-next-line no-constant-condition
 // var a = 1
