@@ -7,7 +7,8 @@
     "sourceMap": true, // 开启sourceMap方便调试
     "jsx": "preserve", // 不允许ts编译jsx语法
     "esModuleInterop": true, // es6 和 commonjs转化
-    "lib": ["esnext", "dom"] // 支持es next 和 dom语法
+    "lib": ["esnext", "dom"], // 支持es next 和 dom语法
+    "types": ["vite/client"]
   },
   // 编译哪些文件
   "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue"]
