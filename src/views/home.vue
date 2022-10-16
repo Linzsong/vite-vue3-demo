@@ -3,5 +3,5 @@
   <Todo></Todo>
 </template>
 <script setup lang="ts">
-import Todo from "../component/todo.vue"
+import Todo from "@/component/todo.vue"
 </script>
