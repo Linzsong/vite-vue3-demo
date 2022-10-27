@@ -1,14 +1,19 @@
 /// <reference types="vitest" />
 import { defineConfig } from "vite"
+import { viteMockServe } from "vite-plugin-mock"
 import vue from "@vitejs/plugin-vue" // 解析 .vue 文件
 import AutoImport from "unplugin-auto-import/vite"
 import path from "path"
 import jsx from "@vitejs/plugin-vue-jsx"
 export default defineConfig({
   plugins: [
+    viteMockServe(),
     vue(),
     jsx(),
-    AutoImport({ imports: ["vue", "vue-router"], eslintrc: { enabled: false } })
+    AutoImport({
+      imports: ["vue", "vue-router"]
+      // eslintrc: { enabled: false }
+    })
   ],
   resolve: {
     alias: [{ find: "@", replacement: path.resolve(__dirname, "src") }]
