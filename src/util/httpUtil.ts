@@ -1,16 +1,25 @@
 import axios, { AxiosRequestConfig, AxiosInstance } from "axios"
-
+export interface ResponseData<T> {
+  code: number
+  data?: T
+  msg?: string
+}
 class HttpRequest {
-  public baseURL = import.meta.env.DEV ? "api" : "/"
+  public baseURL = import.meta.env.DEV ? "/" : "/"
   public timeout = 10000
 
   // 每次请求都创建一个独一无二的实例 ， 为了保证 请求之间是互不干扰的
   public request(options: AxiosRequestConfig) {
     const instance = axios.create(options)
-    options = Object.assign({
-      baseURL: this.baseURL,
-      timeout: this.timeout
-    })
+    options = Object.assign(
+      {
+        baseURL: this.baseURL,
+        timeout: this.timeout
+      },
+      options
+    )
+    console.log(options)
+
     this.setInterceptors(instance)
     return instance(options)
   }
@@ -42,7 +51,36 @@ class HttpRequest {
       }
     )
   }
-  // public get() {}
+  public get<T>(url: string, params: unknown): Promise<ResponseData<T>> {
+    return new Promise((resolve, reject) => {
+      this.request({
+        method: "GET",
+        url: url,
+        params: params
+      })
+        .then((res) => {
+          resolve(res.data)
+        })
+        .catch((err) => {
+          reject(err || err.msg)
+        })
+    })
+  }
+  public post<T>(url: string, data: unknown): Promise<ResponseData<T>> {
+    return new Promise((resolve, reject) => {
+      this.request({
+        method: "POST",
+        url: url,
+        data: data
+      })
+        .then((res) => {
+          resolve(res.data)
+        })
+        .catch((err) => {
+          reject(err || err.msg)
+        })
+    })
+  }
 }
 
 export default new HttpRequest()
