@@ -5,7 +5,6 @@ import { createRouter, createWebHistory } from "vue-router"
 const getRoutes = () => {
   const files = import.meta.glob("../views/*.vue") // 类似于webpack require.context
 
-  console.log(files)
   return Object.entries(files).map(([file, module]) => {
     const name = file.match(/\.\.\/views\/([^.]+?)\.vue/i)?.[1]
     return {

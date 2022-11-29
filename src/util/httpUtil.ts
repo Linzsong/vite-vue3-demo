@@ -18,7 +18,6 @@ class HttpRequest {
       },
       options
     )
-    console.log(options)
 
     this.setInterceptors(instance)
     return instance(options)

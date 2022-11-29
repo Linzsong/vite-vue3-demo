@@ -8,7 +8,7 @@
     "jsx": "preserve", // 不允许ts编译jsx语法
     "esModuleInterop": true, // es6 和 commonjs转化
     "lib": ["esnext", "dom"], // 支持es next 和 dom语法
-    "types": ["vite/client"],
+    "types": ["vite/client"], // Vite 提供了一些内置的对象，但默认不知道这些变量的类型，需要配置以令其显示。
     "baseUrl": ".",
     "paths": {
       "@/*": ["src/*"] // @符号的真实含义， 还需要配置vite别名， 和 declare module
