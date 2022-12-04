@@ -1,12 +1,12 @@
 {
   "env": {
+    // 环境 针对哪些环境的语法
     "browser": true,
     "es2021": true,
     "node": true
   },
   "extends": [
     // 集成了哪些规则， 别人写好的. 别人写好的规则拿来用
-
     "eslint:recommended",
     "plugin:vue/vue3-essential",
     "plugin:@typescript-eslint/recommended",
@@ -14,6 +14,7 @@
     "./.eslintrc-auto-import.json"
   ],
   "overrides": [],
+  // 可以解析.vue 文件
   "parser": "vue-eslint-parser",
   "parserOptions": {
     "parser": "@typescript-eslint/parser", // 解析ts文件的
